@@ -1,0 +1,53 @@
+{
+  "name": "mediahuis-github-api",
+  "version": "1.0.0",
+  "description": "Mediahuis - github - API",
+  "scripts": {
+    "build": "babel . -d ./build --ignore node_modules",
+    "start:watch": "nodemon ./src/server.js --exec babel-node",
+    "lint": "eslint \"**/*.js\"",
+    "format": "prettier --write '**/*.{js,ts,css}'",
+    "test:ci": "jest",
+    "test": "jest --watch --notify"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.7.0-alpha.3",
+    "apollo-server-express": "^2.7.0-alpha.3",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "btoa": "^1.2.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-asyncify": "^1.0.0",
+    "graphql": "^14.4.1",
+    "graphql-tools": "^4.0.5",
+    "http-status-codes": "^1.3.2",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-jest": "^24.8.0",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "jasmine-expect": "^4.0.2",
+    "jest": "^24.8.0",
+    "jest-watch-typeahead": "^0.3.1",
+    "nodemon": "^1.17.5",
+    "prettier": "^1.6.1"
+  },
+  "jest": {
+    "verbose": false,
+    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
+  }
+}
