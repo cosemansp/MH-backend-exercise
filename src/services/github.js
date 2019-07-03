@@ -3,6 +3,14 @@ import assert from 'assert';
 
 import config from '../config';
 
+// default axios setup
+axios.defaults.baseURL = config.githubBaseUrl;
+if (config.githubToken) {
+  // eslint-disable-next-line dot-notation
+  axios.defaults.headers.common['Authorization'] = `token ${config.githubToken}`;
+}
+
+// map raw github commit to more usefull object
 export const commitMapper = source => {
   const target = {
     ...source,
@@ -22,17 +30,17 @@ export const getCommit = async (owner, repo, commitSha) => {
   assert(owner, 'Missing required parameter: owner');
   assert(repo, 'Missing required parameter: repo');
   assert(commitSha, 'Missing required parameter: commitSha');
-  const url = `${config.githubBaseUrl}/repos/${owner}/${repo}/git/commits/${commitSha}`;
-  console.log(url);
-  const result = await axios.get(url, {
-    headers: {
-      Authorization: `token ${'42ce43967266966416c0b790e414d26ace2b5bea'}`,
-    },
-  });
-
-  // map to more usefull object
-  return commitMapper(result.data);
+  const url = `/repos/${owner}/${repo}/git/commits/${commitSha}`;
+  try {
+    const res = await axios.get(url);
+    return commitMapper(res.data);
+  } catch (err) {
+    if (err.response.status === 404) {
+      return null;
+    }
+    throw new Error(`Failed to retrieve commit from GitHub: ${err.message}`);
+  }
 };
 
-// curl -H "Authorization: token 42ce43967266966416c0b790e414d26ace2b5bea" https://api.github.com/repos/cosemansp/setup-sls-graphql/git/commits/10e760608dca9f767bf6d3d40c22324fb02ebd05
-// curl -H "Authorization: token 42ce43967266966416c0b790e414d26ace2b5bea" https://api.github.com/repos/propchain/propchain-api/git/commits/aa76e5b2ed1bf1600e1fb1829b453786b667883c
+// curl -H "Authorization: token 42ce43967266966416c0b790e414d26......" https://api.github.com/repos/cosemansp/setup-sls-graphql/git/commits/10e760608dca9f767bf6d3d40c22324fb02ebd05
+// curl -H "Authorization: token 42ce43967266966416c0b790e414d26......" https://api.github.com/repos/propchain/propchain-api/git/commits/aa76e5b2ed1bf1600e1fb1829b453786b667883c

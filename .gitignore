@@ -1,4 +1,18 @@
+# cache & temp files
+build
+npm-debug.log
+junit.xml
 
-\.DS_Store
+# OS fields
+.DS_Store
 
+# npm
 node_modules
+
+# secrets
+.env.*
+
+# temp
+yarn-error\.log
+drop
+wf_*.json
