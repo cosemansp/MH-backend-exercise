@@ -1,5 +1,5 @@
 {
-  "name": "mediahuis-github-api",
+  "name": "mediahuis-mh-backend-exercise",
   "version": "1.0.0",
   "description": "Mediahuis - github - API",
   "scripts": {
@@ -32,6 +32,7 @@
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-jest": "^24.8.0",
+    "crossenv": "^0.0.2-security",
     "eslint": "5.3.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-prettier": "^6.0.0",
@@ -44,7 +45,7 @@
   },
   "jest": {
     "verbose": false,
-    "setupTestFrameworkScriptFile": "<rootDir>/setupJest.js",
+    "setupFilesAfterEnv": ["<rootDir>/setupJest.js"],
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"

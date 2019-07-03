@@ -1,19 +1,7 @@
-// import { ApolloServer } from 'apollo-server';
-// import { typeDefs, resolvers } from './graphql/schema';
-
-// // In the most basic sense, the ApolloServer can be started
-// // by passing type definitions (typeDefs) and the resolvers
-// // responsible for fetching the data for those types.
-// const server = new ApolloServer({ typeDefs, resolvers });
-
-// // This `listen` method launches a web-server.  Existing apps
-// // can utilize middleware options, which we'll discuss later.
-// server.listen().then(({ url }) => {
-//   console.log(`🚀  Server ready at ${url}`);
-// });
-
-import config from './config';
+import config, { dumpConfig } from './config';
 import app from './express';
+
+dumpConfig(config);
 
 const server = app
   .listen({ port: config.port }, () => {

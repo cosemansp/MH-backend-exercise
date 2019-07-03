@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Kadane split array 1`] = `
+Array [
+  Array [
+    0,
+    -2,
+    -7,
+    0,
+  ],
+  Array [
+    9,
+    2,
+    -6,
+    2,
+  ],
+  Array [
+    -4,
+    1,
+    -4,
+    1,
+  ],
+  Array [
+    -1,
+    8,
+    0,
+    -2,
+  ],
+]
+`;
