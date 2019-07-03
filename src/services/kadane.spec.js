@@ -29,13 +29,6 @@ describe('Kadane', () => {
     expect(result).toEqual([4, -3]);
   });
 
-  test('imcomplete split array', () => {
-    const action = () => {
-      splitArray([2, 0, 3], 2);
-    };
-    expect(action).toThrow();
-  });
-
   test('combined', () => {
     const array = splitArray([0, -2, -7, 0, 9, 2, -6, 2, -4, 1, -4, 1, -1, 8, 0, -2], 4);
     expect(kadanes2d(array)).toBe(15);

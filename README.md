@@ -1,11 +1,11 @@
 # mediahuis-github-api
 
-Graphql API Exercise
+Mediahuis Backend Exercise
 
 ## Prerequisites
 
 - [Node 11.x](https://nodejs.org/en/) or higher
-- [Yarn Package Manager](https://yarnpkg.com/en/) (an alternative to npm)
+- [Yarn Package Manager](https://yarnpkg.com/en/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Getting Started
@@ -20,12 +20,13 @@ $ GITHUB_TOKEN=xxxxxxx yarn start:watch
 
 # run unit tests
 $ yarn test
+$ yarn test:watch
 ```
 
 ## Features
 
 - [x] Github Graphql API
-- [x] Sub-rectabgle REST API
+- [x] Sub-rectangle REST API
 - [x] REST Error handler
 
 ## API
@@ -75,3 +76,9 @@ GET http://localhost:4000/graphql
   }
 }
 ```
+
+## Resources
+
+- [Maximum Sum Rectangular Submatrix in Matrix dynamic programming/2D kadane](https://www.youtube.com/watch?v=yCQN096CwWM)
+
+- [Kadane's Algorithm to Maximum Sum Subarray Problem](https://www.youtube.com/watch?v=86CQq3pKSUw)
