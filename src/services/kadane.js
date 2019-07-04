@@ -20,7 +20,7 @@ export function sumArray(a1, a2) {
 // see also https://blog.abelotech.com/posts/array-conversion-2-dimensional-javascript/
 export function splitArray(array, howMany) {
   const result = [];
-  const input = array.slice(0);
+  const input = [...array];
   while (input[0] !== undefined) {
     const part = input.splice(0, howMany);
     result.push(part);
